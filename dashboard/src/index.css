@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Dark Mode Glassmorphism Tokens */
-  --color-bg:         #09090b;     /* zinc-950 — deep black background */
-  --color-surface:    rgba(24, 24, 27, 0.6); /* zinc-900 with opacity for glass */
-  --color-border:     rgba(255, 255, 255, 0.08); /* subtle white borders */
-  --color-heading:    #fafafa;     /* zinc-50 — pure white text */
-  --color-body:       #a1a1aa;     /* zinc-400 — muted body text */
-  --color-muted:      #52525b;     /* zinc-600 — very muted */
-  --color-accent:     #818cf8;     /* indigo-400 */
-  --color-accent-glow: rgba(129, 140, 248, 0.15); 
-  --color-success:    #34d399;     /* emerald-400 */
-  --color-warning:    #fbbf24;     /* amber-400 */
-  --color-danger:     #f87171;     /* red-400 */
+  /* Premium Light Mode Glassmorphism Tokens */
+  --color-bg:         #f8fafc;     /* slate-50 — very light premium background */
+  --color-surface:    rgba(255, 255, 255, 0.7); /* pure white with opacity for glass */
+  --color-border:     rgba(0, 0, 0, 0.08); /* subtle dark borders */
+  --color-heading:    #0f172a;     /* slate-900 — deep elegant text */
+  --color-body:       #475569;     /* slate-600 — muted body text */
+  --color-muted:      #64748b;     /* slate-500 — very muted */
+  --color-accent:     #6366f1;     /* indigo-500 */
+  --color-accent-glow: rgba(99, 102, 241, 0.15); 
+  --color-success:    #10b981;     /* emerald-500 */
+  --color-warning:    #f59e0b;     /* amber-500 */
+  --color-danger:     #ef4444;     /* red-500 */
 }
 
 * {
@@ -22,8 +22,8 @@
 body {
   background-color: var(--color-bg);
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(129, 140, 248, 0.04), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(52, 211, 153, 0.04), transparent 25%);
+    radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.06), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.06), transparent 25%);
   color: var(--color-body);
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +37,7 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.03);
 }
 
 /* Elegant scrollbar */
@@ -48,11 +48,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: #cbd5e1;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  background: #94a3b8;
 }
 
 /* Smooth fade-in for event rows */
@@ -76,5 +76,5 @@ body {
 }
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px var(--color-accent-glow);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 0 15px var(--color-accent-glow);
 }

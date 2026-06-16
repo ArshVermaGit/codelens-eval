@@ -32,29 +32,22 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
         {entries.map((entry, idx) => (
           <tr
             key={idx}
-            className="group hover:bg-white/[0.03] transition-colors tabular-nums"
+            className="border-b transition-colors hover:bg-zinc-50/80 group"
             style={{ borderBottom: "1px solid var(--color-border)" }}
           >
             <td className="px-7 py-5">
               {idx < 3 ? (
-                <span
-                  className={`
-                    inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold shadow-sm
-                    ${idx === 0 ? "bg-amber-500/20 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)] border border-amber-500/30" : ""}
-                    ${idx === 1 ? "bg-zinc-400/20 text-zinc-300 drop-shadow-[0_0_8px_rgba(161,161,170,0.6)] border border-zinc-400/30" : ""}
-                    ${idx === 2 ? "bg-orange-500/20 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.6)] border border-orange-500/30" : ""}
-                  `}
-                >
+                <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-zinc-100 border border-zinc-200 text-xs font-bold text-zinc-700 group-hover:scale-110 transition-transform">
                   {entry.rank}
-                </span>
+                </div>
               ) : (
-                <span className="text-sm font-semibold pl-2" style={{ color: "var(--color-muted)" }}>
+                <span className="text-sm font-semibold pl-2 text-zinc-900" style={{ color: "var(--color-muted)" }}>
                   {entry.rank}
                 </span>
               )}
             </td>
             <td className="px-7 py-5">
-              <span className="font-semibold group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all" style={{ color: "var(--color-heading)" }}>
+              <span className="font-semibold group-hover:text-black transition-all text-zinc-900">
                 {entry.agent_name}
               </span>
             </td>

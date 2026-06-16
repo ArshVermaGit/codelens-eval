@@ -24,8 +24,8 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, icon, iconBg }) => {
         </div>
       </div>
       <h3
-        className="text-4xl font-extrabold tracking-tight tabular-nums"
-        style={{ color: "var(--color-heading)", textShadow: "0 0 20px rgba(255,255,255,0.1)" }}
+        className="text-4xl font-extrabold tracking-tight tabular-nums drop-shadow-sm"
+        style={{ color: "var(--color-heading)" }}
       >
         {value}
       </h3>
