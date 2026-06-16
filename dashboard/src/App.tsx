@@ -9,7 +9,7 @@ const App: React.FC = () => {
   useWebSocket();
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--color-bg)" }}>
+    <div className="min-h-screen bg-transparent">
       <div className="max-w-7xl mx-auto px-6 py-10 space-y-10">
         <Header />
         <StatsRow />

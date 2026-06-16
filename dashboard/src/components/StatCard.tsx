@@ -10,8 +10,7 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ label, value, icon, iconBg }) => {
   return (
     <div
-      className="bg-white rounded-3xl p-7 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 group"
-      style={{ border: "1px solid var(--color-border)" }}
+      className="glass-panel hover-lift rounded-3xl p-7 transition-all duration-200 group"
     >
       <div className="flex items-start justify-between mb-5">
         <p
@@ -26,7 +25,7 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, icon, iconBg }) => {
       </div>
       <h3
         className="text-4xl font-extrabold tracking-tight tabular-nums"
-        style={{ color: "var(--color-heading)" }}
+        style={{ color: "var(--color-heading)", textShadow: "0 0 20px rgba(255,255,255,0.1)" }}
       >
         {value}
       </h3>

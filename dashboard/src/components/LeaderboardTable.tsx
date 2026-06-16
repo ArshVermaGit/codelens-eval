@@ -32,17 +32,17 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
         {entries.map((entry, idx) => (
           <tr
             key={idx}
-            className="group hover:bg-zinc-50/80 transition-colors tabular-nums"
+            className="group hover:bg-white/[0.03] transition-colors tabular-nums"
             style={{ borderBottom: "1px solid var(--color-border)" }}
           >
             <td className="px-7 py-5">
               {idx < 3 ? (
                 <span
                   className={`
-                    inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold
-                    ${idx === 0 ? "bg-amber-50 text-amber-600" : ""}
-                    ${idx === 1 ? "bg-zinc-100 text-zinc-500" : ""}
-                    ${idx === 2 ? "bg-orange-50 text-orange-500" : ""}
+                    inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold shadow-sm
+                    ${idx === 0 ? "bg-amber-500/20 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)] border border-amber-500/30" : ""}
+                    ${idx === 1 ? "bg-zinc-400/20 text-zinc-300 drop-shadow-[0_0_8px_rgba(161,161,170,0.6)] border border-zinc-400/30" : ""}
+                    ${idx === 2 ? "bg-orange-500/20 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.6)] border border-orange-500/30" : ""}
                   `}
                 >
                   {entry.rank}
@@ -54,7 +54,7 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
               )}
             </td>
             <td className="px-7 py-5">
-              <span className="font-semibold group-hover:text-zinc-900 transition-colors" style={{ color: "var(--color-heading)" }}>
+              <span className="font-semibold group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all" style={{ color: "var(--color-heading)" }}>
                 {entry.agent_name}
               </span>
             </td>

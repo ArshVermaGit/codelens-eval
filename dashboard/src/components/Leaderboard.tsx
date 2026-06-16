@@ -22,8 +22,7 @@ const Leaderboard: React.FC = () => {
 
   return (
     <div
-      className="bg-white rounded-3xl overflow-hidden flex flex-col h-[600px]"
-      style={{ border: "1px solid var(--color-border)" }}
+      className="glass-panel overflow-hidden flex flex-col h-[600px] rounded-3xl"
     >
       {/* Header */}
       <div
@@ -31,8 +30,8 @@ const Leaderboard: React.FC = () => {
         style={{ borderBottom: "1px solid var(--color-border)" }}
       >
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-amber-50 rounded-xl">
-            <Trophy className="w-5 h-5 text-amber-600" />
+          <div className="p-2 bg-amber-500/10 rounded-xl">
+            <Trophy className="w-5 h-5 text-amber-400" />
           </div>
           <h2 className="text-lg font-extrabold tracking-tight" style={{ color: "var(--color-heading)" }}>
             Leaderboard
@@ -41,7 +40,7 @@ const Leaderboard: React.FC = () => {
         <button
           onClick={() => refetch()}
           disabled={isLoading || isRefetching}
-          className="p-2.5 hover:bg-zinc-100 rounded-xl transition-colors disabled:opacity-40"
+          className="p-2.5 hover:bg-white/5 rounded-xl transition-colors disabled:opacity-40"
           style={{ color: "var(--color-muted)" }}
         >
           <RefreshCw className={clsx("w-4 h-4", (isLoading || isRefetching) && "animate-spin")} />
@@ -58,13 +57,13 @@ const Leaderboard: React.FC = () => {
               className={clsx(
                 "py-3.5 text-sm font-semibold transition-all relative whitespace-nowrap",
                 activeTab === tab.id
-                  ? "text-zinc-900"
-                  : "text-zinc-400 hover:text-zinc-600"
+                  ? "text-white drop-shadow-md"
+                  : "text-zinc-500 hover:text-zinc-300"
               )}
             >
               {tab.label}
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-zinc-900 rounded-full" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-indigo-400 rounded-full shadow-[0_0_10px_rgba(129,140,248,0.8)]" />
               )}
             </button>
           ))}
@@ -82,8 +81,8 @@ const Leaderboard: React.FC = () => {
           <LeaderboardTable entries={entries} />
         ) : (
           <div className="flex flex-col items-center justify-center h-full space-y-4">
-            <div className="p-5 bg-zinc-50 rounded-2xl">
-              <Trophy className="w-10 h-10 text-zinc-200" />
+            <div className="p-5 bg-white/5 rounded-2xl shadow-inner border border-white/5">
+              <Trophy className="w-10 h-10 text-zinc-700" />
             </div>
             <p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: "var(--color-muted)" }}>
               No rankings yet

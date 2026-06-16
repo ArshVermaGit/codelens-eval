@@ -8,10 +8,10 @@ interface ScoreBadgeProps {
 const ScoreBadge: React.FC<ScoreBadgeProps> = ({ score }) => {
   const colorClass =
     score >= 0.8
-      ? "text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200"
+      ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.2)]"
       : score >= 0.5
-        ? "text-amber-700 bg-amber-50 ring-1 ring-amber-200"
-        : "text-red-600 bg-red-50 ring-1 ring-red-200";
+        ? "text-amber-400 bg-amber-500/10 border border-amber-500/20 shadow-[0_0_10px_rgba(251,191,36,0.2)]"
+        : "text-red-400 bg-red-500/10 border border-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.2)]";
 
   return (
     <span

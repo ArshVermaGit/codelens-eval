@@ -16,11 +16,7 @@ const EventRow: React.FC<EventRowProps> = ({ event }) => {
 
   return (
     <div
-      className="rounded-2xl p-4 transition-all duration-200 hover:shadow-sm animate-fade-slide-in"
-      style={{
-        backgroundColor: "#fafafa",
-        border: "1px solid var(--color-border)",
-      }}
+      className="glass-panel hover-lift rounded-2xl p-4 transition-all duration-200 animate-fade-slide-in"
     >
       <div className="flex items-center justify-between mb-2">
         <span
@@ -29,7 +25,7 @@ const EventRow: React.FC<EventRowProps> = ({ event }) => {
         >
           {time}
         </span>
-        <span className="text-[10px] font-mono font-bold bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-md">
+        <span className="text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-2 py-0.5 rounded-md shadow-sm">
           {event.episode_id.slice(0, 8)}
         </span>
       </div>
@@ -42,12 +38,12 @@ const EventRow: React.FC<EventRowProps> = ({ event }) => {
         </span>
         <span
           className={clsx(
-            "text-xs font-bold font-mono px-2.5 py-1 rounded-full",
+            "text-xs font-bold font-mono px-2.5 py-1 rounded-full shadow-sm",
             event.reward > 0
-              ? "text-emerald-700 bg-emerald-50"
+              ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.2)]"
               : event.reward < 0
-                ? "text-red-600 bg-red-50"
-                : "text-zinc-500 bg-zinc-100"
+                ? "text-red-400 bg-red-500/10 border border-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.2)]"
+                : "text-zinc-400 bg-white/5 border border-white/10"
           )}
         >
           {event.reward > 0 ? "+" : ""}

@@ -22,20 +22,20 @@ const StatsRow: React.FC = () => {
       <StatCard
         label="Total Episodes"
         value={stats?.total_episodes ?? 0}
-        icon={<Trophy className="w-5 h-5 text-amber-600" />}
-        iconBg="bg-amber-50"
+        icon={<Trophy className="w-5 h-5 text-amber-400" />}
+        iconBg="bg-amber-500/10 shadow-[0_0_15px_rgba(251,191,36,0.2)] border border-amber-500/20"
       />
       <StatCard
         label="Avg. Score"
         value={stats?.avg_score?.toFixed(2) ?? "0.00"}
-        icon={<Zap className="w-5 h-5 text-blue-600" />}
-        iconBg="bg-blue-50"
+        icon={<Zap className="w-5 h-5 text-blue-400" />}
+        iconBg="bg-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.2)] border border-blue-500/20"
       />
       <StatCard
         label="Active Episodes"
         value={health?.active_episodes ?? 0}
-        icon={<Activity className="w-5 h-5 text-emerald-600" />}
-        iconBg="bg-emerald-50"
+        icon={<Activity className="w-5 h-5 text-emerald-400" />}
+        iconBg="bg-emerald-500/10 shadow-[0_0_15px_rgba(16,185,129,0.2)] border border-emerald-500/20"
       />
     </div>
   );
