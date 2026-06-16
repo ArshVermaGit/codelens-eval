@@ -18,13 +18,13 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 FastLanguageModel.for_inference(model)
 
 prompt = """You are an expert code reviewer. Review the following code and output a JSON action indicating any bugs or issues you find.
+
 Code:
-```python
 def process(data):
     for i in data:
         if i == "remove": data.remove(i)
     return data
-```\n"""
+"""
 
 messages = [
     {"role": "system", "content": "You are an expert code reviewer. Output only valid JSON."},
