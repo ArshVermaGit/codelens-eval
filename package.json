@@ -1,0 +1,10 @@
+{
+  "name": "codelens-eval-root",
+  "version": "1.0.0",
+  "description": "CodeLens Eval Root Package",
+  "scripts": {
+    "dev": "cd dashboard && npm run dev",
+    "build": "cd dashboard && npm run build",
+    "install:all": "cd dashboard && npm install"
+  }
+}
