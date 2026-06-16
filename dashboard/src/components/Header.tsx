@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Wifi, WifiOff } from "lucide-react";
 import { fetchHealth } from "../api";
 import { clsx } from "clsx";
+import logo from "../logo.svg";
 
 const Header: React.FC = () => {
   const { data: health } = useQuery({
@@ -18,7 +19,7 @@ const Header: React.FC = () => {
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
           {/* Logo Replacement */}
-          <img src="./logo.svg" className="h-[38px] w-auto" alt="CodeLens." />
+          <img src={logo} className="h-[38px] w-auto" alt="CodeLens." />
           <div className="h-5 w-px bg-zinc-200 hidden sm:block mx-2" />
           <p className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] hidden sm:block pt-1 opacity-40 group-hover:opacity-60 transition-opacity" style={{ color: "var(--color-heading)" }}>
             Evaluation
