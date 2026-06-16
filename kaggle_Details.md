@@ -1,17 +1,17 @@
 # Model Summary
 
-**CodeLens-Reviewer** is an AI agent fine-tuned to act as a Senior Code Reviewer. Built upon the Qwen2.5-Coder (7B) architecture, this model has been instruction-tuned to autonomously detect bugs, identify security vulnerabilities, and critique architectural flaws in Python Pull Requests. It interacts directly with the CodeLens Evaluation Environment, outputting perfectly structured JSON actions to simulate an automated code review loop.
+**CodeLens-Reviewer** is an AI agent fine-tuned to act as a Senior Code Reviewer. Built upon the `Qwen2.5-Coder (7B)` architecture, this model has been instruction-tuned by Arsh Verma to autonomously detect bugs, identify security vulnerabilities, and critique architectural flaws in Python Pull Requests. It interacts directly with the CodeLens Evaluation Environment, outputting perfectly structured JSON actions to simulate an automated code review loop.
 
 ## Usage
 
-This model is intended to be used either standalone for code inference or plugged into the CodeLens Evaluation Environment.
+This model is intended to be used either standalone for code inference or plugged into the live CodeLens Evaluation Environment.
 
 ### Inference with Unsloth
 ```python
 from unsloth import FastLanguageModel
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name = "ArshVerma/codelens_reviewer_lora", 
+    model_name = "ArshVerma/CodeLens-Reviewer", 
     max_seq_length = 2048,
     load_in_4bit = True,
 )
@@ -24,8 +24,7 @@ def process(data):
     for i in data:
         if i == "remove": data.remove(i)
     return data
-```
-"""
+```\n"""
 
 messages = [
     {"role": "system", "content": "You are an expert code reviewer. Output only valid JSON."},
@@ -38,14 +37,14 @@ print(tokenizer.batch_decode(outputs)[0])
 ```
 
 **Shape of Inputs/Outputs:**
-- **Input:** Natural language instructions and a python code snippet (prompt string).
+- **Input:** Natural language instructions and a python code snippet.
 - **Output:** A strict JSON object containing `action`, `issue_description`, `filename`, `line_number`, `severity`, and `category`.
 
 **Known Failures:** The model may hallucinate specific line numbers if the provided code diff is extremely long or poorly formatted.
 
 ## System
 
-This model serves as the core "Agent" in the **CodeLens Evaluation System**. It receives system prompts, noise budgets, and task definitions from the CodeLens Python backend. Its downstream dependency is the CodeLens WebSocket dashboard, which parses the JSON outputs to assign rewards (positive/negative) and update the live leaderboard.
+This model serves as the core "Agent" in the **CodeLens Evaluation System**. It receives system prompts, noise budgets, and task definitions from the CodeLens Python backend. Its downstream dependency is the CodeLens WebSocket dashboard (hosted on Hugging Face Spaces), which parses the JSON outputs to assign rewards (positive/negative) and update the live leaderboard.
 
 ## Implementation requirements
 
@@ -80,7 +79,7 @@ The model was trained on a highly specific, synthetically generated instructiona
 
 ## Training data
 
-The training data (`dataset.jsonl`) contains custom prompt-completion pairs. Each row simulates a CodeLens environment state containing:
+The training data (`ArshVerma/CodeLens-Dataset`) contains custom prompt-completion pairs. Each row simulates a CodeLens environment state containing:
 - A `pr_title` and `pr_description`.
 - A code `diff` containing planted bugs, security flaws, or architectural issues.
 - A golden `JSON` completion representing the ideal code review action.
